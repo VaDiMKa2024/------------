@@ -176,52 +176,22 @@ footer {
 /* --- Анімація слайд-шоу з 7 фото --- */
 
 /* --- Анімація слайд-шоу з 7 фото --- */
+/* Новий стиль для GIF анімації */
 .photo-animation {
-    /* 1. Встановлюємо фіксовані розміри */
-    width: 500px;
-    height: 350px;
-    flex-shrink: 0; /* Важливо, щоб блок не стискався на малих екранах */
-
-    /* 2. Налаштування фону */
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #e0e0e0; /* Світло-сірий фон, якщо фото не заповнить весь простір */
-    border-radius: 5px;
-
-    /* 3. Запускаємо анімацію */
-    animation: slideshow 21s infinite;
+    width: 500px;          /* Фіксована ширина, як було раніше */
+    height: 350px;         /* Фіксована висота */
+    object-fit: cover;     /* Щоб картинка гарно заповнювала блок */
+    border-radius: 5px;    /* Заокруглені кути */
+    flex-shrink: 0;        /* Щоб блок не стискався */
 }
 
-/* Опис анімації зміни зображень */
-@keyframes slideshow {
-    /* 1. Початок, перше фото */
-    0%   { background-image: url('image/palace-animation1.jpg'); }
-    14%  { background-image: url('image/palace-animation1.jpg'); }
-
-    /* 2. Зміна на друге фото */
-    15%  { background-image: url('image/palace-animation2.jpg'); }
-    28%  { background-image: url('image/palace-animation2.jpg'); }
-
-    /* 3. Зміна на третє фото */
-    29%  { background-image: url('image/palace-animation3.jpg'); }
-    42%  { background-image: url('image/palace-animation3.jpg'); }
-
-    /* 4. Зміна на четверте фото */
-    43%  { background-image: url('image/palace-animation4.jpg'); }
-    56%  { background-image: url('image/palace-animation4.jpg'); }
-
-    /* 5. Зміна на п'яте фото */
-    57%  { background-image: url('image/palace-animation5.jpg'); }
-    70%  { background-image: url('image/palace-animation5.jpg'); }
-
-    /* 6. Зміна на шосте фото */
-    71%  { background-image: url('image/palace-animation6.jpg'); }
-    84%  { background-image: url('image/palace-animation6.jpg'); }
-
-    /* 7. Зміна на сьоме фото */
-    85%  { background-image: url('image/palace-animation7.jpg'); }
-    100% { background-image: url('image/palace-animation7.jpg'); }
+/* Адаптивність для мобільних пристроїв */
+@media(max-width: 768px) {
+    .photo-animation {
+        width: 100%;       /* На телефонах розтягуємо на всю ширину */
+        height: auto;      /* Висота підлаштується автоматично */
+        max-height: 350px; /* Обмеження висоти */
+    }
 }
 .content-image {
     flex: 1;
